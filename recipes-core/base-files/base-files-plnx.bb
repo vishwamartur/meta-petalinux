@@ -24,7 +24,6 @@ do_install () {
 	echo "${DISTRO_VERSION}" > ${D}${sysconfdir}/${DISTRO}/version
 }
 
-RRECOMMENDS:${PN} = "base-files-board base-files-board-variant base-files-soc"
 FILES:${PN} = "${sysconfdir}/${DISTRO}"
 CONFFILES:${PN} = " \
 	${sysconfdir}/${DISTRO}/bsp \
