@@ -12,11 +12,11 @@ Upstream-Status: Inappropriate [Xilinx specific]
  src/platformsupport/kmsconvenience/qkmsdevice.cpp | 4 ++--
  1 file changed, 2 insertions(+), 2 deletions(-)
 
-diff --git a/src/platformsupport/kmsconvenience/qkmsdevice.cpp b/src/platformsupport/kmsconvenience/qkmsdevice.cpp
-index 585c078..82506a7 100644
---- a/src/platformsupport/kmsconvenience/qkmsdevice.cpp
-+++ b/src/platformsupport/kmsconvenience/qkmsdevice.cpp
-@@ -780,9 +780,9 @@ QKmsScreenConfig *QKmsDevice::screenConfig() const
+Index: git/src/platformsupport/kmsconvenience/qkmsdevice.cpp
+===================================================================
+--- git.orig/src/platformsupport/kmsconvenience/qkmsdevice.cpp
++++ git/src/platformsupport/kmsconvenience/qkmsdevice.cpp
+@@ -1028,9 +1028,9 @@ QKmsScreenConfig *QKmsDevice::screenConf
  
  QKmsScreenConfig::QKmsScreenConfig()
      : m_headless(false)
@@ -28,6 +28,3 @@ index 585c078..82506a7 100644
      , m_virtualDesktopLayout(VirtualDesktopLayoutHorizontal)
  {
      loadConfig();
--- 
-2.7.4
-
