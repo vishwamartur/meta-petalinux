@@ -14,11 +14,11 @@ Upstream-Status: Inappropriate [Xilinx specific]
  .../eglfs_kms_support/qeglfskmsintegration.cpp           | 16 +++++++++++++---
  4 files changed, 19 insertions(+), 9 deletions(-)
 
-diff --git a/src/platformsupport/kmsconvenience/qkmsdevice.cpp b/src/platformsupport/kmsconvenience/qkmsdevice.cpp
-index fec59cf..919937c 100644
---- a/src/platformsupport/kmsconvenience/qkmsdevice.cpp
-+++ b/src/platformsupport/kmsconvenience/qkmsdevice.cpp
-@@ -347,7 +347,7 @@ QPlatformScreen *QKmsDevice::createScreenForConnector(drmModeResPtr resources,
+Index: git/src/platformsupport/kmsconvenience/qkmsdevice.cpp
+===================================================================
+--- git.orig/src/platformsupport/kmsconvenience/qkmsdevice.cpp
++++ git/src/platformsupport/kmsconvenience/qkmsdevice.cpp
+@@ -369,7 +369,7 @@ QPlatformScreen *QKmsDevice::createScree
      uint32_t drmFormat;
      bool drmFormatExplicit = true;
      if (formatStr.isEmpty()) {
@@ -27,7 +27,7 @@ index fec59cf..919937c 100644
          drmFormatExplicit = false;
      } else if (formatStr == "xrgb8888") {
          drmFormat = DRM_FORMAT_XRGB8888;
-@@ -371,7 +371,7 @@ QPlatformScreen *QKmsDevice::createScreenForConnector(drmModeResPtr resources,
+@@ -393,7 +393,7 @@ QPlatformScreen *QKmsDevice::createScree
          drmFormat = DRM_FORMAT_ABGR2101010;
      } else {
          qWarning("Invalid pixel format \"%s\" for output %s", formatStr.constData(), connectorName.constData());
@@ -35,12 +35,12 @@ index fec59cf..919937c 100644
 +        drmFormat = DRM_FORMAT_RGB565;
          drmFormatExplicit = false;
      }
-     qCDebug(qLcKmsDebug) << "Format is" << hex << drmFormat << dec << "requested_by_user =" << drmFormatExplicit
-diff --git a/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp b/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp
-index 4d0cf0c..842cf53 100644
---- a/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp
-+++ b/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp
-@@ -87,7 +87,7 @@ QEglFSKmsGbmCursor::QEglFSKmsGbmCursor(QEglFSKmsGbmScreen *screen)
+     qCDebug(qLcKmsDebug) << "Format is" << Qt::hex << drmFormat << Qt::dec << "requested_by_user =" << drmFormatExplicit
+Index: git/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp
+===================================================================
+--- git.orig/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp
++++ git/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmcursor.cpp
+@@ -87,7 +87,7 @@ QEglFSKmsGbmCursor::QEglFSKmsGbmCursor(Q
      }
  
      m_bo = gbm_bo_create(static_cast<QEglFSKmsGbmDevice *>(m_screen->device())->gbmDevice(), m_cursorSize.width(), m_cursorSize.height(),
@@ -49,7 +49,7 @@ index 4d0cf0c..842cf53 100644
      if (!m_bo) {
          qWarning("Could not create buffer for cursor!");
      } else {
-@@ -197,7 +197,7 @@ void QEglFSKmsGbmCursor::changeCursor(QCursor *windowCursor, QWindow *window)
+@@ -197,7 +197,7 @@ void QEglFSKmsGbmCursor::changeCursor(QC
      if (m_cursorImage.image()->width() > m_cursorSize.width() || m_cursorImage.image()->height() > m_cursorSize.height())
          qWarning("Cursor larger than %dx%d, cursor will be clipped.", m_cursorSize.width(), m_cursorSize.height());
  
@@ -58,7 +58,7 @@ index 4d0cf0c..842cf53 100644
      cursorImage.fill(Qt::transparent);
  
      QPainter painter;
-@@ -282,7 +282,7 @@ void QEglFSKmsGbmCursor::initCursorAtlas()
+@@ -302,7 +302,7 @@ void QEglFSKmsGbmCursor::initCursorAtlas
          m_cursorAtlas.hotSpots << hotSpot;
      }
  
@@ -67,11 +67,11 @@ index 4d0cf0c..842cf53 100644
      m_cursorAtlas.cursorWidth = image.width() / m_cursorAtlas.cursorsPerRow;
      m_cursorAtlas.cursorHeight = image.height() / ((Qt::LastCursor + cursorsPerRow) / cursorsPerRow);
      m_cursorAtlas.width = image.width();
-diff --git a/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp b/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp
-index f154520..bbd3f0c 100644
---- a/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp
-+++ b/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp
-@@ -98,7 +98,7 @@ EGLNativeWindowType QEglFSKmsGbmIntegration::createNativeOffscreenWindow(const Q
+Index: git/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp
+===================================================================
+--- git.orig/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp
++++ git/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms/qeglfskmsgbmintegration.cpp
+@@ -96,7 +96,7 @@ EGLNativeWindowType QEglFSKmsGbmIntegrat
  
      gbm_surface *surface = gbm_surface_create(static_cast<QEglFSKmsGbmDevice *>(device())->gbmDevice(),
                                                1, 1,
@@ -80,11 +80,11 @@ index f154520..bbd3f0c 100644
                                                GBM_BO_USE_RENDERING);
  
      return reinterpret_cast<EGLNativeWindowType>(surface);
-diff --git a/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp b/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp
-index a6aac61..68915b0 100644
---- a/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp
-+++ b/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp
-@@ -102,9 +102,19 @@ QSurfaceFormat QEglFSKmsIntegration::surfaceFormatFor(const QSurfaceFormat &inpu
+Index: git/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp
+===================================================================
+--- git.orig/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp
++++ git/src/plugins/platforms/eglfs/deviceintegration/eglfs_kms_support/qeglfskmsintegration.cpp
+@@ -102,9 +102,19 @@ QSurfaceFormat QEglFSKmsIntegration::sur
      QSurfaceFormat format(inputFormat);
      format.setRenderableType(QSurfaceFormat::OpenGLES);
      format.setSwapBehavior(QSurfaceFormat::DoubleBuffer);
@@ -107,6 +107,3 @@ index a6aac61..68915b0 100644
      return format;
  }
  
--- 
-2.7.4
-
