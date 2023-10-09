@@ -25,10 +25,16 @@
 
 
 ip=$(ip -4 addr show eth0 | grep -oE "inet ([0-9]{1,3}[\.]){3}[0-9]{1,3}" | cut -d ' ' -f2)
+
+if [ -z "$ip" ] && [ -d /sys/class/net/eth1 ] ; then
+    ip=$(ip -4 addr show eth1 | grep -oE "inet ([0-9]{1,3}[\.]){3}[0-9]{1,3}" | cut -d ' ' -f2)
+fi
+
 if [ -z $ip ]; then
     echo "ERROR: Invalid IP address"
     exit 1
 fi
+
 jupyter nbextension enable --py widgetsnbextension
 jupyter notebook --no-browser --allow-root --ip=$ip
 
