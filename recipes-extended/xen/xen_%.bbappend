@@ -1,5 +1,3 @@
-require xen-xilinx.inc
-
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 SRC_URI += " \
@@ -9,25 +7,10 @@ SRC_URI += " \
     file://passthrough-example-part.dts \
     "
 
-RDEPENDS:${PN}-efi += "bash python3"
+DEPENDS += "image-builder-native"
 
 do_compile:append() {
     dtc -I dts -O dtb ${WORKDIR}/passthrough-example-part.dts -o ${WORKDIR}/passthrough-example-part.dtb
-}
-
-do_deploy:append() {
-    # Mimic older behavior for compatibility
-    if [ -f ${DEPLOYDIR}/xen-${MACHINE} ]; then
-        ln -s xen-${MACHINE} ${DEPLOYDIR}/xen
-    fi
-
-    if [ -f ${DEPLOYDIR}/xen-${MACHINE}.gz ]; then
-        ln -s xen-${MACHINE}.gz ${DEPLOYDIR}/xen.gz
-    fi
-
-    if [ -f ${DEPLOYDIR}/xen-${MACHINE}.efi ]; then
-        ln -s xen-${MACHINE}.efi ${DEPLOYDIR}/xen.efi
-    fi
 }
 
 do_install:append() {
