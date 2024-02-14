@@ -5,9 +5,6 @@ PACKAGECONFIG:append:class-native = " \
     text \
     "
 
-# Workaround for python3-opencv not building properly
-PACKAGECONFIG:remove:class-target = "python3"
-
 do_install:append() {
     sed -i '/TARGET correspondence/d' ${D}${libdir}/cmake/opencv4/OpenCVModules-release.cmake
     sed -i '/_IMPORT_CHECK_TARGETS correspondence/d' ${D}${libdir}/cmake/opencv4/OpenCVModules-release.cmake
