@@ -47,6 +47,12 @@ IMAGE_INSTALL:append:ultra96-zynqmp = " packagegroup-petalinux-ultra96-webapp"
 IMAGE_INSTALL:append:ultra96-zynqmp = " ultra96-power-button"
 IMAGE_INSTALL:append:ultra96-zynqmp = " packagegroup-petalinux-96boards-sensors"
 
+# Raft related recipes
+IMAGE_INSTALL:append:zcu208-zynqmp = " raft"
+IMAGE_INSTALL:append:zcu216-zynqmp = " raft"
+IMAGE_INSTALL:append:system-controller = " raft"
+
+# Additional general purpose items
 IMAGE_INSTALL:append = " tree ttf-bitstream-vera packagegroup-core-full-cmdline python3-pybind11"
 
 IMAGE_INSTALL:append = " python3-graphviz"
