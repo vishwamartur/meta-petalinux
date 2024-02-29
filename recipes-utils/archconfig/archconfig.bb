@@ -64,7 +64,7 @@ pkg_postinst_ontarget:${PN}() {
     done
 
     # K24 -> zynqmp_eg, K26 -> zynqmp_ev
-    if [ "${SOM}" = "k26" ]; then
+    if [ "${SOM}" = "k26_smk" ] || [ "${SOM}" = "k26_sm" ]; then
         for f in ${DNF_CONFIG_FILES}; do
             sed -i s/zynqmp_eg/zynqmp_ev/g "${f}"
         done
