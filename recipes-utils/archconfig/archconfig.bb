@@ -58,9 +58,9 @@ pkg_postinst_ontarget:${PN}() {
         FILE_NAME=$(echo "${URI}" | awk -F"petalinux.xilinx.com/" '{print $2}' | sed 's./.-.g')
         REPO_NAME=$(echo "${URI}" | awk -F"petalinux.xilinx.com/" '{print $2}' | sed 's./. .g')
         echo -e "[oe-remote-repo-${FILE_NAME}-${SOM}_${CARRIER}]\n" \
-                "name=OE Remote Repo: ${REPO_NAME} ${SOM}_${CARRIER}\n" \
-                "baseurl=${URI}/${SOM}_${CARRIER}\ngpgcheck=0\n" \
-                | tee -a "/etc/yum.repos.d/*${FILE_NAME}.repo" >/dev/null 2>&1
+            "name=OE Remote Repo: ${REPO_NAME} ${SOM}_${CARRIER}\n" \
+            "baseurl=${URI}/${SOM}_${CARRIER}\ngpgcheck=0\n" \
+                >> "/etc/yum.repos.d/oe-remote-repo-${FILE_NAME}.repo"
     done
 
     # K24 -> zynqmp_eg, K26 -> zynqmp_ev
