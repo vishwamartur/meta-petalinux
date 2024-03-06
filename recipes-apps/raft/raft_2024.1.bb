@@ -4,9 +4,9 @@ LIC_FILES_CHKSUM = " \
     file://${WORKDIR}/git/LICENSE;md5=cc21c526211d34984839aa67dd16f172 \
     file://${WORKDIR}/git/docs/LICENSE;md5=d8f0ffdbc8d019bc821a5a07bdca1406 \
 "
-BRANCH = "main"
+BRANCH = "2024.1"
 SRC_URI = "git://github.com/Xilinx/RAFT;protocol=https;branch=${BRANCH}"
-SRCREV = "2d66e1104a1c2513d66a764e11a3ddfb6d66644a"
+SRCREV = "07e1b42b78dec564ed563b79db070b9286688441"
 
 inherit update-rc.d systemd
 
