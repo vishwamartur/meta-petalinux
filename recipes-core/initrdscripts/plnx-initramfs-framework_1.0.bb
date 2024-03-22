@@ -1,6 +1,6 @@
 require ${COREBASE}/meta/recipes-core/initrdscripts/initramfs-framework_1.0.bb
 
-FILESEXTRAPATHS:append := ":${COREBASE}/meta/recipes-core/initrdscripts/initramfs-framework"
+FILESEXTRAPATHS:append := "${THISDIR}/${PN}:${COREBASE}/meta/recipes-core/initrdscripts/initramfs-framework"
 
 PACKAGES = " \
     ${PN}-base \

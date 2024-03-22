@@ -9,6 +9,7 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-xilinx/meta-xilinx-standalone \
   ##OEROOT##/../meta-xilinx/meta-xilinx-bsp \
   ##OEROOT##/../meta-xilinx/meta-xilinx-vendor \
+  ##OEROOT##/../meta-xilinx/meta-xilinx-virtualization \
   ##OEROOT##/../meta-xilinx-tools \
   ##OEROOT##/../meta-openembedded/meta-perl \
   ##OEROOT##/../meta-openembedded/meta-python \
@@ -24,6 +25,7 @@ BBLAYERS ?= " \
   ##OEROOT##/../meta-virtualization \
   ##OEROOT##/../meta-openamp \
   ##OEROOT##/../meta-kria \
+  ##OEROOT##/../meta-embedded-plus \
   ##OEROOT##/../meta-security \
   ##OEROOT##/../meta-security/meta-tpm \
   ##OEROOT##/../meta-xilinx-tsn \

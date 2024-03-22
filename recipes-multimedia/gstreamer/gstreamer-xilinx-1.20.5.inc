@@ -24,5 +24,5 @@ SRC_URI = " \
     ${REPO};${BRANCHARG};name=gstreamer-xlnx \
 "
 
-SRCREV_gstreamer-xlnx = "d7a39e850385ed5d5838839bdcc67d6cb44c2188"
+SRCREV_gstreamer-xlnx = "5126254d77401b9673602ddcb617ff9e958dd295"
 SRCREV_FORMAT = "gstreamer-xlnx"
