@@ -5,7 +5,7 @@ LIC_FILES_CHKSUM = "file://LICENSE;md5=268f2517fdae6d70f4ea4c55c4090aa8"
 inherit jupyter-examples
 
 REPO ?= "git://github.com/Xilinx/OpenAMP-notebooks.git;protocol=https"
-SRCREV ?= "75ca92a939e72a03194d66a67708a31e1dcf958b"
+SRCREV ?= "30b76d864261e5dd321fadfaf74b933b7cd88892"
 BRANCH ?= "main"
 BRANCHARG = "${@['nobranch=1', 'branch=${BRANCH}'][d.getVar('BRANCH') != '']}"
 SRC_URI = "${REPO};${BRANCHARG}"
