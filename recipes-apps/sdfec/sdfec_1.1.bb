@@ -17,6 +17,8 @@ PACKAGE_ARCH = "${SOC_VARIANT_ARCH}"
 
 S = "${WORKDIR}/git/sd-fec-1.1"
 
+DEPENDS += "libgpiod"
+
 TARGETS_APPS ?= "sdfec-demo sdfec-interrupts sdfec-multi-ldpc-codes"
 
 do_compile() {
