@@ -64,10 +64,10 @@ do_install() {
     install -m 0755 ${WORKDIR}/lvm ${D}/init.d/09-lvm
 
     # loadkernelmodule
-    if [ -n "${MODULE_NAME}" ]; then
-                sed -i -e 's/@@MODULE_NAMES@@/${MODULE_NAME}/' ${WORKDIR}/loadkernelmodule
+    if [ -n "${INITRAMFS_LOAD_MODULES}" ]; then
+                sed -i -e 's/@@INITRAMFS_LOAD_MODULES@@/${INITRAMFS_LOAD_MODULES}/' ${WORKDIR}/loadkernelmodule
         else
-                bbwarn "MODULE_NAME variable not declared."
+                bbwarn "INITRAMFS_LOAD_MODULES variable not declared."
         fi
 
         install -m 0755 ${WORKDIR}/loadkernelmodule ${D}/init.d/11-loadkernelmodule
