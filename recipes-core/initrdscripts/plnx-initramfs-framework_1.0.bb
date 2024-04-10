@@ -20,6 +20,7 @@ PACKAGES = " \
 "
 
 PROVIDES += "initramfs-framework"
+INITRAMFS_LOAD_MODULES ?= ""
 
 SRC_URI += " \
 	file://udhcpc \
@@ -64,13 +65,7 @@ do_install() {
     install -m 0755 ${WORKDIR}/lvm ${D}/init.d/09-lvm
 
     # loadkernelmodule
-    if [ -n "${INITRAMFS_LOAD_MODULES}" ]; then
-                sed -i -e 's/@@INITRAMFS_LOAD_MODULES@@/${INITRAMFS_LOAD_MODULES}/' ${WORKDIR}/loadkernelmodule
-        else
-                bbwarn "INITRAMFS_LOAD_MODULES variable not declared."
-        fi
-
-        install -m 0755 ${WORKDIR}/loadkernelmodule ${D}/init.d/11-loadkernelmodule
+    sed -i -e 's/@@INITRAMFS_LOAD_MODULES@@/${INITRAMFS_LOAD_MODULES}/' ${WORKDIR}/loadkernelmodule
 
     install -m 0755 ${WORKDIR}/loadkernelmodule ${D}/init.d/11-loadkernelmodule
 
