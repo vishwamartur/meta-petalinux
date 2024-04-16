@@ -23,6 +23,7 @@ PACKAGES_LIST:zynqmp ?= "${DEFAULT_LIST} \
 		u-boot-xlnx-scr \
 		qemu-devicetrees \
 		open-amp-device-tree \
+		open-amp-xlnx \
 		xen \
 		board-id-data \
 		"
@@ -39,6 +40,7 @@ PACKAGES_LIST:versal ?= "${DEFAULT_LIST} \
 		u-boot-xlnx-scr \
 		qemu-devicetrees \
 		open-amp-device-tree \
+		open-amp-xlnx \
 		xen \
 		"
 PACKAGES_LIST:microblaze ?= "${DEFAULT_LIST} \
@@ -99,6 +101,7 @@ UBOOT_IMAGES:microblaze ?= "u-boot.bin:u-boot.bin u-boot.elf:u-boot.elf \
 
 PACKAGES_LIST[mb-realoc] = "u-boot-s.bin:u-boot-s.bin"
 PACKAGES_LIST[device-tree] = "${LINUX_DT_FILE_NAME}:system.dtb"
+PACKAGES_LIST[open-amp-xlnx] = "openamp-lopper-output.dtb:openamp-lopper-output.dtb"
 PACKAGES_LIST[uboot-device-tree] = "uboot-device-tree.dtb:u-boot.dtb"
 PACKAGES_LIST[u-boot-xlnx-scr] = "boot.scr:boot.scr"
 PACKAGES_LIST[arm-trusted-firmware] = "arm-trusted-firmware.elf:bl31.elf arm-trusted-firmware.bin:bl31.bin"

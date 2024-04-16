@@ -16,14 +16,17 @@ PACKAGES = " \
     plnx-initramfs-module-udhcpc \
 	plnx-initramfs-module-scripts \
 	plnx-initramfs-module-searche2fs \
+	plnx-initramfs-module-loadkernelmodule \
 "
 
 PROVIDES += "initramfs-framework"
+INITRAMFS_LOAD_MODULES ?= ""
 
 SRC_URI += " \
 	file://udhcpc \
 	file://searche2fs \
 	file://functions \
+	file://loadkernelmodule  \
 	"
 
 
@@ -60,6 +63,12 @@ do_install() {
 
     # lvm
     install -m 0755 ${WORKDIR}/lvm ${D}/init.d/09-lvm
+
+    # loadkernelmodule
+    sed -i -e 's/@@INITRAMFS_LOAD_MODULES@@/${INITRAMFS_LOAD_MODULES}/' ${WORKDIR}/loadkernelmodule
+
+    install -m 0755 ${WORKDIR}/loadkernelmodule ${D}/init.d/11-loadkernelmodule
+
 
     # scripts
     install -m 0755 ${WORKDIR}/functions ${D}/scripts/functions
@@ -117,3 +126,7 @@ FILES:plnx-initramfs-module-lvm = "${FILES:initramfs-module-lvm}"
 SUMMARY:plnx-initramfs-module-overlayroot = "${SUMMARY:initramfs-module-overlayroot}"
 RDEPENDS:plnx-initramfs-module-overlayroot = "${PN}-base plnx-initramfs-module-rootfs"
 FILES:plnx-initramfs-module-overlayroot = "${FILES:initramfs-module-overlayroot}"
+
+SUMMARY:plnx-initramfs-module-loadkernelmodule = "search for the kernel module and load it"
+RDEPENDS:plnx-initramfs-module-loadkernelmodule = "${PN}-base"
+FILES:plnx-initramfs-module-loadkernelmodule = "/init.d/11-loadkernelmodule"

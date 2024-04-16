@@ -1,7 +1,8 @@
 /*
 * poke utility - for those who remember the good old days!
+* Fixed by Pascal Bos from Nikhef, to be able to use this
+* in 64 bit registers.
 *
-
 * Copyright (C) 2013 - 2016  Xilinx, Inc.  All rights reserved.
 *
 * Permission is hereby granted, free of charge, to any person
@@ -31,6 +32,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include <stdint.h>
 #include <sys/mman.h>
 #include <fcntl.h>
 
@@ -45,9 +47,9 @@ int main(int argc, char *argv[])
 {
 	int fd;
 	void *ptr;
-	unsigned val;
-	unsigned addr, page_addr, page_offset;
-	unsigned page_size=sysconf(_SC_PAGESIZE);
+	uint64_t val;
+	uint64_t addr, page_addr, page_offset;
+	uint64_t page_size=sysconf(_SC_PAGESIZE);
 
 	fd=open("/dev/mem",O_RDWR);
 	if(fd<1) {
@@ -67,11 +69,11 @@ int main(int argc, char *argv[])
 	page_offset=addr-page_addr;
 
 	ptr=mmap(NULL,page_size,PROT_READ|PROT_WRITE,MAP_SHARED,fd,(addr & ~(page_size-1)));
-	if((int)ptr==-1) {
+	if((int64_t)ptr==-1) {
 		perror(argv[0]);
 		exit(-1);
 	}
 
-	*((unsigned *)(ptr+page_offset))=val;
+	*((uint64_t *)(ptr+page_offset))=val;
 	return 0;
 }
