@@ -24,9 +24,9 @@ RDEPENDS:${PN}-matrix-mul:append:k26-kria = " openamp-fw-mat-muld"
 RDEPENDS:${PN}-matrix-mul:append:zcu102-zynqmp = " openamp-fw-mat-muld"
 
 RDEPENDS:${PN}-rpc-demo = "rpmsg-proxy-app"
-RDEPENDS:${PN}-rpc-demo:append:k24-kria = " openamp-fw-rpc-demo"
-RDEPENDS:${PN}-rpc-demo:append:k26-kria = " openamp-fw-rpc-demo"
-RDEPENDS:${PN}-rpc-demo:append:zcu102-zynqmp = " openamp-fw-rpc-demo"
+#RDEPENDS:${PN}-rpc-demo:append:k24-kria = " openamp-fw-rpc-demo"
+#RDEPENDS:${PN}-rpc-demo:append:k26-kria = " openamp-fw-rpc-demo"
+#RDEPENDS:${PN}-rpc-demo:append:zcu102-zynqmp = " openamp-fw-rpc-demo"
 
 RDEPENDS:${PN}:append = " ${@'open-amp-device-tree' if d.getVar('ENABLE_OPENAMP_DTSI') != '1' else ''}"
 
