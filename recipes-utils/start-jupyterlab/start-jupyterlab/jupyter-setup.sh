@@ -28,7 +28,11 @@ wait_for_ip() {
     do
         echo -n "."
         ip=$(ip -4 addr show eth0 | grep -oE "inet ([0-9]{1,3}[\.]){3}[0-9]{1,3}" | cut -d ' ' -f2)
-        [ ! -z "$ip" ] && break
+        [ -n "$ip" ] && break
+        if [ -d /sys/class/net/eth1 ]; then
+            ip=$(ip -4 addr show eth1 | grep -oE "inet ([0-9]{1,3}[\.]){3}[0-9]{1,3}" | cut -d ' ' -f2)
+            [ -n "$ip" ] && break
+        fi
         sleep 2
     done
 

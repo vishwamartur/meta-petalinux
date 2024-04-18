@@ -27,16 +27,24 @@
 #
 
 if [ "$#" -eq 2 ]; then
-        ROOT_DEV=$1
-        PART_NUM=$2
-        ROOT_PART=$ROOT_DEV$PART_NUM
-        if [ ${#PART_NUM} -eq 2 ]; then
-                PART_NUM=$(echo -n $PART_NUM | tail -c 1)
-        fi
+    ROOT_DEV=$1
+    PART_NUM=$2
+    ROOT_PART=$ROOT_DEV$PART_NUM
+    if [ ${#PART_NUM} -eq 2 ]; then
+        PART_NUM=$(echo -n $PART_NUM | tail -c 1)
+    fi
 else
-        ROOT_PART=$1
-        ROOT_DEV=$(echo $ROOT_PART | cut -c 1-12)
-        PART_NUM=$(echo -n $ROOT_PART | tail -c 1)
+    ROOT_PART=$1
+    if [ $(echo "${ROOT_PART}" | grep "/dev/mmcblk") ]; then
+        ROOT_DEV=$(echo "${ROOT_PART}" | cut -c 1-12)
+        PART_NUM=$(echo "${ROOT_PART}" | tail -c 1)
+    elif [ $(echo  ${ROOT_PART} | grep "/dev/sd") ]; then
+        ROOT_DEV=$(echo "${ROOT_PART}" | cut -c 1-8)
+        PART_NUM=$(echo "${ROOT_PART}" | tail -c 1)
+    else
+        echo "ERROR: Unable to parse ${ROOT_PART}"
+        exit 1
+    fi
 fi
 
 #back up data before extend partition, otherwise data might be lost
