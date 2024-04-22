@@ -30,10 +30,11 @@ DEPENDS += "libmetal"
 RDEPENDS:${PN} += "python3 \
         python3-pyro4 \
 	python3-cffi \
-        python3-async \
         python3-serpent \
         bash \
 "
+#        python3-async \
+#
 
 PACKAGECONFIG[raftnotebooks] = "enabled,disabled,,packagegroup-petalinux-jupyter"
 PACKAGECONFIG[raftstartup] = "enabled,disabled,,rfdc rfclk libmetal"
