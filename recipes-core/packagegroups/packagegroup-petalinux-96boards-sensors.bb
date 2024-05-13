@@ -5,7 +5,6 @@ PACKAGE_ARCH = "${MACHINE_ARCH}"
 inherit packagegroup
 
 96BOARD_SENSOR_PACKAGES = " \
-	avrdude \
 	ntp \
 	packagegroup-core-buildessential \
 	packagegroup-petalinux-mraa	 \
