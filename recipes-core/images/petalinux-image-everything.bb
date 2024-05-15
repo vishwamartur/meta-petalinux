@@ -42,11 +42,6 @@ IMAGE_INSTALL:append:versal = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-not
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' gstreamer-vdu-examples gstreamer-vdu-notebooks', '', d)}"
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('DISTRO_FEATURES', 'openamp', ' openamp-demo-notebooks', '', d)}"
 
-# ultra96-zynqmp recipes
-IMAGE_INSTALL:append:ultra96-zynqmp = " packagegroup-petalinux-ultra96-webapp"
-IMAGE_INSTALL:append:ultra96-zynqmp = " ultra96-power-button"
-IMAGE_INSTALL:append:ultra96-zynqmp = " packagegroup-petalinux-96boards-sensors"
-
 # Raft related recipes
 IMAGE_INSTALL:append:zcu208-zynqmp = " raft"
 IMAGE_INSTALL:append:zcu216-zynqmp = " raft"
