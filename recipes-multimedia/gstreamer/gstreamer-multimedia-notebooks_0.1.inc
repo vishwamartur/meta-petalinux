@@ -5,4 +5,4 @@ SRCREV ?= "ef7a7236144a04977cb5bb800d6d7cf319e52b58"
 BRANCHARG = "${@['nobranch=1', 'branch=${BRANCH}'][d.getVar('BRANCH') != '']}"
 SRC_URI = "${REPO};${BRANCHARG}"
 
-PV .= "+git${SRCPV}"
+PV .= "+git"
