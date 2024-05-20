@@ -3,7 +3,7 @@ REPO   ?= "git://github.com/Xilinx/gstreamer.git;protocol=https"
 
 BRANCHARG = "${@['nobranch=1', 'branch=${BRANCH}'][d.getVar('BRANCH') != '']}"
 
-PV = "1.20.5+git${SRCPV}"
+PV = "1.20.5+git"
 
 # We need a common PRSERV_PV_AUTOINC for all variations of gstreamer packages
 # Need to inject a custom setting, so based on package.bbclass version

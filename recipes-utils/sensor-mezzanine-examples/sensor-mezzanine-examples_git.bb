@@ -19,7 +19,7 @@ SRC_URI = " \
     "
 
 # Modify these as desired
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 SRCREV = "6456fdf28c66bb3ab10ed3d4c5ae3d2a0c97952f"
 
 DEPENDS += "rsync-native"
