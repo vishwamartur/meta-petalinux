@@ -99,7 +99,7 @@ ROS_BASE_PACKAGES = "\
     stress \
     xrt-dev \
     xrt \
-    zocl \
+    kernel-module-zocl \
     opencl-headers-dev \
     opencl-clhpp-dev \
 "
