@@ -9,7 +9,7 @@ SRCREV ?= "30b76d864261e5dd321fadfaf74b933b7cd88892"
 BRANCH ?= "main"
 BRANCHARG = "${@['nobranch=1', 'branch=${BRANCH}'][d.getVar('BRANCH') != '']}"
 SRC_URI = "${REPO};${BRANCHARG}"
-PV .= "+git${SRCPV}"
+PV .= "+git"
 S = "${WORKDIR}/git/openamp"
 
 COMPATIBLE_MACHINE = "^$"

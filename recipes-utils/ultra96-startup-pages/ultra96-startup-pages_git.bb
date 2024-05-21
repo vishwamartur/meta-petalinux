@@ -21,7 +21,7 @@ SYSTEMD_PACKAGES="${PN}"
 SYSTEMD_SERVICE:${PN}="ultra96-startup-page.service"
 SYSTEMD_AUTO_ENABLE:${PN}="enable"
 
-PV = "1.0+git${SRCPV}"
+PV = "1.0+git"
 SRCREV = "276b6efd462fc14f22dcea1af4c51cc3d31d1c95"
 
 FILES:${PN} += "${datadir}/ultra96-startup-pages"

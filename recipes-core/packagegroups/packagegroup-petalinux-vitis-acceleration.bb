@@ -8,12 +8,12 @@ PACKAGES += "${PN}-essential ${PN}-recommends"
 
 RDEPENDS:${PN}-essential:zynqmp = " \
 		xrt \
-		zocl \
+		kernel-module-zocl \
 		"
 
 RDEPENDS:${PN}-essential:versal = " \
 		xrt \
-		zocl \
+		kernel-module-zocl \
 		"
 
 RDEPENDS:${PN}-essential = " \

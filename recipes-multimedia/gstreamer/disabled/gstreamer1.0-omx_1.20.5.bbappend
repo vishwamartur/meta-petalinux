@@ -2,8 +2,8 @@ require gstreamer-xilinx-1.20.5.inc
 
 S = "${WORKDIR}/git/subprojects/gst-omx"
 
-RDEPENDS:${PN} .= "${@bb.utils.contains('MACHINE_FEATURES', 'vcu', ' libomxil-xlnx', '', d)}"
-DEPENDS .= "${@bb.utils.contains('MACHINE_FEATURES', 'vcu', ' libomxil-xlnx', '', d)}"
+RDEPENDS:${PN} .= "${@bb.utils.contains('MACHINE_FEATURES', 'vcu', ' libvcu-omxil', '', d)}"
+DEPENDS .= "${@bb.utils.contains('MACHINE_FEATURES', 'vcu', ' libvcu-omxil', '', d)}"
 
 RDEPENDS:${PN} .= "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' libvdu-omxil', '', d)}"
 DEPENDS .= "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' libvdu-omxil', '', d)}"
