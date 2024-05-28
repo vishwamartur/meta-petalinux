@@ -299,10 +299,8 @@ python plnx_deploy_rootfs() {
     import re
     deploy_dir = d.getVar('IMGDEPLOYDIR') or ""
     image_name = d.getVar('IMAGE_NAME') or ""
-    image_suffix = d.getVar('IMAGE_NAME_SUFFIX') or ""
     output_path = d.getVarFlag('plnx_deploy', 'dirs')
-    search_str = image_name + image_suffix
-    search_str = re.escape(search_str)
+    search_str = re.escape(image_name)
     if os.path.exists(deploy_dir):
         for _file in os.listdir(deploy_dir):
             if re.search(search_str, _file) and not _file.endswith('.qemu-sd-fatimg'):
@@ -311,7 +309,7 @@ python plnx_deploy_rootfs() {
                 else:
                     dest_name='rootfs'
                 source_name=str(_file)
-                dest_name=dest_name + source_name.split(image_suffix)[1]
+                dest_name=dest_name + source_name.split(image_name)[1]
                 copy_files(deploy_dir + '/' + source_name,output_path + '/' + dest_name)
 
     extra_files = d.getVar('EXTRA_FILESLIST') or ""
