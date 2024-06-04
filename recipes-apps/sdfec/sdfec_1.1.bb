@@ -10,10 +10,11 @@ LIC_FILES_CHKSUM = "file://${COMMON_LICENSE_DIR}/MIT;md5=0835ade698e0bcf8506ecda
 SRC_URI = "git://github.com/Xilinx/linux-examples.git;protocol=https;branch=xlnx_rel_v2024.1"
 SRCREV = "84b31cb194325640a631380ed8bfc1db21bab883"
 
-COMPATIBLE_MACHINE = "^$"
-COMPATIBLE_MACHINE:zynqmp-dr = "zynqmp-dr"
+inherit features_check
 
-PACKAGE_ARCH = "${SOC_VARIANT_ARCH}"
+REQUIRED_MACHINE_FEATURES = "rfsoc"
+
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 S = "${WORKDIR}/git/sd-fec-1.1"
 

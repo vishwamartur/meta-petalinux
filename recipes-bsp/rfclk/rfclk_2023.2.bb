@@ -1,16 +1,15 @@
 SUMMARY = "rfclk Library"
 SECTION = "rfclk"
 
-inherit pkgconfig xlnx-embeddedsw
+inherit pkgconfig xlnx-embeddedsw features_check
 
-COMPATIBLE_MACHINE = "^$"
-COMPATIBLE_MACHINE:zynqmp-dr = "zynqmp-dr"
+REQUIRED_MACHINE_FEATURES = "rfsoc"
 
 FILESEXTRAPATHS:prepend := "${THISDIR}/files:"
 
 S = "${WORKDIR}/git"
 
-PACKAGE_ARCH = "${SOC_VARIANT_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 PROVIDES = "rfclk"
 

@@ -22,6 +22,7 @@ COMPATIBLE_MACHINE = "^$"
 COMPATIBLE_MACHINE:zynq = "zynq"
 COMPATIBLE_MACHINE:zynqmp = "zynqmp"
 COMPATIBLE_MACHINE:versal = "versal"
+COMPATIBLE_MACHINE:versal-net = "versal-net"
 
 
 do_install() {

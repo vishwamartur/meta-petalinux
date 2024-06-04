@@ -14,6 +14,7 @@ S = "${WORKDIR}/git/pm-notebooks"
 
 COMPATIBLE_MACHINE = "^$"
 COMPATIBLE_MACHINE:versal = "versal"
+COMPATIBLE_MACHINE:versal-net = "versal-net"
 
 RDEPENDS:${PN} = "packagegroup-petalinux-jupyter \
                   python3-ipywidgets \

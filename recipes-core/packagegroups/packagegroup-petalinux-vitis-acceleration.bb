@@ -32,4 +32,4 @@ RRECOMMENDS:${PN}-recommends = " \
 		dnf \
 		"
 
-RDEPENDS:${PN}-essential:append:versal-ai-core = "ai-engine-driver"
+RDEPENDS:${PN}-essential:append = "${@bb.utils.contains('MACHINE_FEATURES', 'aie', 'ai-engine-driver', '', d)}"

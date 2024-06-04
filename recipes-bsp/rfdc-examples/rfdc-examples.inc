@@ -1,11 +1,10 @@
 LICENSE = "BSD"
 
-inherit xlnx-embeddedsw
+inherit xlnx-embeddedsw features_check
 
-COMPATIBLE_MACHINE = "^$"
-COMPATIBLE_MACHINE:zynqmp-dr = "zynqmp-dr"
+REQUIRED_MACHINE_FEATURES = "rfsoc"
 
-PACKAGE_ARCH = "${SOC_VARIANT_ARCH}"
+PACKAGE_ARCH = "${MACHINE_ARCH}"
 
 DEPENDS = "rfdc"
 RDEPENDS:${PN} = "rfdc"
