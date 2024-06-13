@@ -17,8 +17,11 @@ COMPATIBLE_MACHINE:zynqmp = "zynqmp"
 COMPATIBLE_MACHINE:versal = "versal"
 COMPATIBLE_MACHINE:versal-net = "versal-net"
 
+DEPENDS += " packagegroup-petalinux-jupyter \
+             packagegroup-openamp"
+
 RDEPENDS:${PN} = " packagegroup-petalinux-jupyter \
-                   packagegroup-petalinux-openamp"
+                   packagegroup-openamp"
 
 do_install() {
     install -d ${D}/${JUPYTER_DIR}/openamp-notebooks

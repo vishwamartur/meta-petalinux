@@ -14,7 +14,7 @@ COMMON_FEATURES ?= "${SSH_SERVER_DEFAULT} hwcodecs"
 IMAGE_FEATURES += "${COMMON_FEATURES}"
 
 SYSTEMD_DEFAULT_TARGET = "${@bb.utils.contains_any('IMAGE_INSTALL', \
-    [ 'packagegroup-petalinux-x11', 'packagegroup-petalinux-weston' ], \
+    [ 'packagegroup-core-x11', 'packagegroup-core-weston' ], \
     'graphical.target', 'multi-user.target', d)}"
 
 COMMON_INSTALL = " \

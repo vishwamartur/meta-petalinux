@@ -18,8 +18,8 @@ RDEPENDS:${PN}-essential:versal = " \
 
 RDEPENDS:${PN}-essential = " \
 		opencl-headers \
-		packagegroup-petalinux-opencv \
-		packagegroup-petalinux-x11 \
+		packagegroup-opencv \
+		packagegroup-core-x11 \
 		"
 
 RRECOMMENDS:${PN}-recommends = " \
