@@ -9,19 +9,65 @@ TRACING_PROFILE_FEATURES = "\
     tools-testapps \
     "
 
+IMAGE_INSTALL += " \
+    bash \
+    bzip2 \
+    flex \
+    gmp \
+    libnet \
+    libpng \
+    libusb-compat \
+    libusb1 \
+    popt \
+    unzip \
+    zlib \
+    tcf-agent \
+    dnf \
+    libattr \
+    libinput \
+    gdb \
+    libftdi \
+    cmake \
+    util-linux \
+    cpufrequtils \
+    bridge-utils \
+    mtd-utils \
+    usbutils \
+    pciutils \
+    can-utils \
+    i2c-tools \
+    smartmontools \
+    e2fsprogs \
+    tcpdump \
+    wireshark \
+    libdrm \
+    libdrm-tests \
+    python3-pip \
+    python3-multiprocessing \
+    python3-shell \
+    python3-threading \
+    python3-pyserial \
+    ${@bb.utils.contains('DISTRO_FEATURES', 'virtualization vmsep', 'packagegroup-oci', '', d)} \
+"
+
+IMAGE_INSTALL:append:arm = "\
+    python3-h5py \
+    python3-numpy \
+"
+
+IMAGE_INSTALL:append:aarch64 = "\
+    python3-h5py \
+    python3-numpy \
+"
+
 PLNX_COMMON_FEATURES = " \
     dev-pkgs \
     package-management \
     ptest-pkgs \
     splash \
     tools-sdk \
-    petalinux-base \
     petalinux-opencv \
-    petalinux-display-debug \
-    petalinux-networking-debug \
     petalinux-networking-stack \
-    petalinux-python-modules \
-    petalinux-utils \
     petalinux-v4lutils \
     petalinux-lmsensors \
     petalinux-benchmarks \
@@ -30,16 +76,12 @@ PLNX_COMMON_FEATURES = " \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11 opengl', 'petalinux-self-hosted', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'petalinux-x11', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'petalinux-matchbox', '', d)} \
-    petalinux-qt \
-    petalinux-qt-extended \
-    ${@bb.utils.contains('DISTRO_FEATURES', 'virtualization vmsep', 'petalinux-ocicontainers', '', d)} \
     "
 #    ${@bb.utils.contains('DISTRO_FEATURES', 'openamp', 'petalinux-openamp', '', d)}
 
 PLNX_COMMON_FEATURES:append:aarch64 = " \
     petalinux-gstreamer \
     petalinux-audio \
-    petalinux-mraa \
     ${@bb.utils.contains('DISTRO_FEATURES', 'x11', 'petalinux-multimedia', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'wayland', 'petalinux-weston', '', d)} \
     ${@bb.utils.contains('DISTRO_FEATURES', 'xen', 'petalinux-xen', '', d)} \
