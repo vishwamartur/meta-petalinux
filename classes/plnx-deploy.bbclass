@@ -43,6 +43,17 @@ PACKAGES_LIST:versal ?= "${DEFAULT_LIST} \
 		open-amp-xlnx \
 		xen \
 		"
+PACKAGES_LIST:versal-net ?= "${DEFAULT_LIST} \
+		plm-firmware \
+		extract-cdo \
+		psm-firmware \
+		arm-trusted-firmware \
+		u-boot-xlnx-scr \
+		qemu-devicetrees \
+		open-amp-device-tree \
+		open-amp-xlnx \
+		xen \
+		"
 PACKAGES_LIST:microblaze ?= "${DEFAULT_LIST} \
 		u-boot-xlnx-scr \
 		fs-boot \
@@ -68,12 +79,14 @@ MC_PACKAGES_LIST ?= "empty-application \
 
 SYMLINK_PACKAGES ?= ""
 SYMLINK_PACKAGES:versal ?= "device-tree"
+SYMLINK_PACKAGES:versal-net ?= "device-tree"
 SYMLINK_PACKAGES:zynqmp ?= "device-tree"
 SYMLINK_PACKAGES:k26-kv ?= "device-tree"
 SYMLINK_PACKAGES:k26-kr ?= "device-tree"
 
 SYMLINK_FILES ?= ""
 SYMLINK_FILES:versal ?= "system-default.dtb:system.dtb"
+SYMLINK_FILES:versal-net ?= "system-default.dtb:system.dtb"
 SYMLINK_FILES:zynqmp ?= "system-default.dtb:system.dtb"
 SYMLINK_FILES:k26-kv ?= "system-zynqmp-sck-kv-g-revB.dtb:system.dtb"
 SYMLINK_FILES:k26-kr ?= "system-zynqmp-sck-kr-g-revB.dtb:system.dtb"
@@ -89,6 +102,7 @@ PACKAGE_UBOOT_DTB_NAME ?= ""
 PACKAGE_FITIMG_NAME ?= ""
 
 SDT_DT_FILE_NAME ?= ""
+SDT_DT_FILE_NAME:versal-net ?= "cortexa78-versal-linux.dtb"
 SDT_DT_FILE_NAME:versal ?= "cortexa72-versal-linux.dtb"
 SDT_DT_FILE_NAME:zynqmp ?= "cortexa53-zynqmp-linux.dtb"
 LINUX_DT_FILE_NAME ?= "${@'/devicetree/${SDT_DT_FILE_NAME}' if d.getVar('SYSTEM_DTFILE') != '' else 'system.dtb'}"
