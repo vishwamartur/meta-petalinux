@@ -22,6 +22,7 @@ DEPENDS:append = " \
 DEPENDS:append:zynq   = " libeigen"
 DEPENDS:append:zynqmp = " libeigen"
 DEPENDS:append:versal = " libeigen"
+DEPENDS:append:versal-net = " libeigen"
 
 # We include docker (via IMAGE_FEATURES and packagegroup-ocicontainers)
 # but also want docker-compose to be available.  Use same switch method.
@@ -41,6 +42,10 @@ IMAGE_INSTALL:append:zynqmp = "${@bb.utils.contains('MACHINE_FEATURES', 'rfsoc',
 IMAGE_INSTALL:append:versal = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-notebooks kernel-module-hdmi"
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' gstreamer-vdu-examples gstreamer-vdu-notebooks', '', d)}"
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('DISTRO_FEATURES', 'openamp', ' openamp-demo-notebooks', '', d)}"
+
+IMAGE_INSTALL:append:versal-net = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-notebooks kernel-module-hdmi"
+IMAGE_INSTALL:append:versal-net = "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' gstreamer-vdu-examples gstreamer-vdu-notebooks', '', d)}"
+IMAGE_INSTALL:append:versal-net = "${@bb.utils.contains('DISTRO_FEATURES', 'openamp', ' openamp-demo-notebooks', '', d)}"
 
 # Raft related recipes
 IMAGE_INSTALL:append:zcu208-zynqmp = " raft"

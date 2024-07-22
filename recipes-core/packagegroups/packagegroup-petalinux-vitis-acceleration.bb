@@ -16,6 +16,11 @@ RDEPENDS:${PN}-essential:versal = " \
 		kernel-module-zocl \
 		"
 
+RDEPENDS:${PN}-essential:versal-net = " \
+		xrt \
+		kernel-module-zocl \
+		"
+
 RDEPENDS:${PN}-essential = " \
 		opencl-headers \
 		packagegroup-opencv \
