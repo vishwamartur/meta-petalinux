@@ -39,9 +39,6 @@ IMAGE_INSTALL = " \
 USE_DEVFS = "${@'0' if d.getVar('INITRAMFS_IMAGE_BUNDLE') == '1' else '1'}"
 IMAGE_DEVICE_TABLES:append = " files/plnx_dev_table.txt"
 
-# If meta-xilinx-tools is available, require libdfx
-LIBDFX_RECIPE = "${@'libdfx' if 'xilinx-tools' in d.getVar('BBFILE_COLLECTIONS').split() else ''}"
-
 INSTALL_ZYNQ_ZYNQMP_VERSAL = " \
     fpga-manager-script \
     htop \
@@ -50,9 +47,9 @@ INSTALL_ZYNQ_ZYNQMP_VERSAL = " \
     u-boot-tools \
     "
 
-COMMON_INSTALL:append:zynqmp = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} hellopm ${LIBDFX_RECIPE}"
+COMMON_INSTALL:append:zynqmp = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} hellopm libdfx"
 COMMON_INSTALL:append:zynq = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL}"
-COMMON_INSTALL:append:versal = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} ${LIBDFX_RECIPE}"
-COMMON_INSTALL:append:versal-net = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} ${LIBDFX_RECIPE}"
+COMMON_INSTALL:append:versal = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} libdfx"
+COMMON_INSTALL:append:versal-net = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} libdfx"
 
 IMAGE_LINGUAS = " "
