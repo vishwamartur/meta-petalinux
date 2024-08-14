@@ -14,7 +14,6 @@ TOOLCHAIN_HOST_TASK += "\
 	nativesdk-unzip \
 	nativesdk-gzip \
 	nativesdk-python3 \
-	nativesdk-python3-links \
 	nativesdk-tftp-hpa \
 	nativesdk-diffstat \
 	nativesdk-gnupg \
