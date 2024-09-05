@@ -21,7 +21,7 @@ PACKAGES_LIST:zynqmp ?= "${DEFAULT_LIST} \
 		pmu-firmware \
 		arm-trusted-firmware \
 		u-boot-xlnx-scr \
-		qemu-devicetrees \
+		qemu-devicetree-natives \
 		open-amp-device-tree \
 		open-amp-xlnx \
 		xen \
@@ -38,7 +38,7 @@ PACKAGES_LIST:versal ?= "${DEFAULT_LIST} \
 		psm-firmware \
 		arm-trusted-firmware \
 		u-boot-xlnx-scr \
-		qemu-devicetrees \
+		qemu-devicetrees-native \
 		open-amp-device-tree \
 		open-amp-xlnx \
 		xen \
@@ -49,7 +49,7 @@ PACKAGES_LIST:versal-net ?= "${DEFAULT_LIST} \
 		psm-firmware \
 		arm-trusted-firmware \
 		u-boot-xlnx-scr \
-		qemu-devicetrees \
+		qemu-devicetrees-native \
 		open-amp-device-tree \
 		open-amp-xlnx \
 		xen \
@@ -226,7 +226,7 @@ def copyfiles_update(d):
     qemu_hwdtbs = (d.getVar('QEMU_HWDTBS') or "").split()
     qemu_multi_hwdtbs = (d.getVar('QEMU_MULTI_HWDTBS') or "").split()
     dtbs_list = (' '.join(qemu_hwdtbs) + ' ' + ' '.join(qemu_multi_hwdtbs))
-    d.setVarFlag('PACKAGES_LIST', 'qemu-devicetrees', dtbs_list)
+    d.setVarFlag('PACKAGES_LIST', 'qemu-devicetrees-native', dtbs_list)
 
 def copy_files(inputfile,outputfile):
    import shutil

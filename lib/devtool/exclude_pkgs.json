@@ -27,7 +27,7 @@
 		"plm",
 		"plm-firmwar",
 		"arm-trusted-firmwar",
-		"qemu-devicetrees",
+		"qemu-devicetrees-native",
 		"qemu-xilinx",
 		"qemuwrapper-cross",
 		"image-builder",
