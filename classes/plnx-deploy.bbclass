@@ -105,6 +105,7 @@ SDT_DT_FILE_NAME ?= ""
 SDT_DT_FILE_NAME:versal-net ?= "cortexa78-linux.dtb"
 SDT_DT_FILE_NAME:versal ?= "cortexa72-linux.dtb"
 SDT_DT_FILE_NAME:zynqmp ?= "cortexa53-linux.dtb"
+SDT_DT_FILE_NAME:zynq ?= "cortexa9-linux.dtb"
 LINUX_DT_FILE_NAME ?= "${@'/devicetree/${SDT_DT_FILE_NAME}' if d.getVar('SYSTEM_DTFILE') != '' else 'system.dtb'}"
 
 UBOOT_IMAGES ?= "u-boot-nodtb.bin:u-boot.bin u-boot-nodtb.elf:u-boot.elf \
