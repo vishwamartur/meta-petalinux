@@ -47,7 +47,7 @@ INSTALL_ZYNQ_ZYNQMP_VERSAL = " \
     u-boot-tools \
     "
 
-COMMON_INSTALL:append:zynqmp = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} hellopm libdfx"
+COMMON_INSTALL:append:zynqmp = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} libdfx"
 COMMON_INSTALL:append:zynq = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL}"
 COMMON_INSTALL:append:versal = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} libdfx"
 COMMON_INSTALL:append:versal-net = " ${INSTALL_ZYNQ_ZYNQMP_VERSAL} libdfx"
