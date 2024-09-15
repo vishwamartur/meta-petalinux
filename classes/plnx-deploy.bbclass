@@ -20,6 +20,7 @@ PACKAGES_LIST:zynqmp ?= "${DEFAULT_LIST} \
 		fsbl-firmware \
 		pmu-firmware \
 		arm-trusted-firmware \
+		trusted-firmware-a \
 		u-boot-xlnx-scr \
 		qemu-devicetree-natives \
 		open-amp-device-tree \
@@ -37,6 +38,7 @@ PACKAGES_LIST:versal ?= "${DEFAULT_LIST} \
 		extract-cdo \
 		psm-firmware \
 		arm-trusted-firmware \
+		trusted-firmware-a \
 		u-boot-xlnx-scr \
 		qemu-devicetrees-native \
 		open-amp-device-tree \
@@ -48,6 +50,7 @@ PACKAGES_LIST:versal-net ?= "${DEFAULT_LIST} \
 		extract-cdo \
 		psm-firmware \
 		arm-trusted-firmware \
+		trusted-firmware-a \
 		u-boot-xlnx-scr \
 		qemu-devicetrees-native \
 		open-amp-device-tree \
@@ -120,6 +123,7 @@ PACKAGES_LIST[open-amp-xlnx] = "openamp-lopper-output.dtb:openamp-lopper-output.
 PACKAGES_LIST[uboot-device-tree] = "uboot-device-tree.dtb:u-boot.dtb"
 PACKAGES_LIST[u-boot-xlnx-scr] = "boot.scr:boot.scr"
 PACKAGES_LIST[arm-trusted-firmware] = "arm-trusted-firmware.elf:bl31.elf arm-trusted-firmware.bin:bl31.bin"
+PACKAGES_LIST[trusted-firmware-a] = "arm-trusted-firmware.elf:bl31.elf arm-trusted-firmware.bin:bl31.bin"
 PACKAGES_LIST[extract-cdo] = "CDO/pmc_cdo.bin:pmc_cdo.bin"
 PACKAGES_LIST[xen] = "xen:xen"
 PACKAGES_LIST[board-id-data] = "som-eeprom.bin:som-eeprom.bin kv-eeprom.bin:kv-eeprom.bin kr-eeprom.bin:kr-eeprom.bin"
