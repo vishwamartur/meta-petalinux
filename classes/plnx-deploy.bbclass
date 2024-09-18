@@ -22,7 +22,6 @@ PACKAGES_LIST:zynqmp ?= "${DEFAULT_LIST} \
 		arm-trusted-firmware \
 		trusted-firmware-a \
 		u-boot-xlnx-scr \
-		qemu-devicetree-natives \
 		open-amp-device-tree \
 		open-amp-xlnx \
 		xen \
@@ -40,7 +39,6 @@ PACKAGES_LIST:versal ?= "${DEFAULT_LIST} \
 		arm-trusted-firmware \
 		trusted-firmware-a \
 		u-boot-xlnx-scr \
-		qemu-devicetrees-native \
 		open-amp-device-tree \
 		open-amp-xlnx \
 		xen \
@@ -52,7 +50,6 @@ PACKAGES_LIST:versal-net ?= "${DEFAULT_LIST} \
 		arm-trusted-firmware \
 		trusted-firmware-a \
 		u-boot-xlnx-scr \
-		qemu-devicetrees-native \
 		open-amp-device-tree \
 		open-amp-xlnx \
 		xen \
@@ -161,6 +158,12 @@ QEMU_MULTI_HWDTBS:versal-net ?= " \
                 qemu-hw-devicetrees/multiarch/${QEMU_HWDTB_NAME}:versal-net-qemu-multiarch-psx.dtb \
                 qemu-hw-devicetrees/multiarch/board-versal-pmx-virt.dtb:versal-net-qemu-multiarch-pmx.dtb"
 
+QEMU_HWDTBS ??= ""
+QEMU_MULTI_HWDTBS ??= ""
+
+# Add to the above settings DEPLOY_DIR_IMAGES
+QEMU_DTB_FILESLIST = "${@' '.join([os.path.join('${DEPLOY_DIR_IMAGE}', entry) for entry in (d.getVar('QEMU_HWDTBS') + ' ' + d.getVar('QEMU_MULTI_HWDTBS')).split()])}"
+
 def copyfiles_update(d):
     soc_family = d.getVar('SOC_FAMILY') or ""
     machine_arch = d.getVar('MACHINE') or ""
@@ -224,13 +227,6 @@ def copyfiles_update(d):
         kernel_images += 'fitImage-' + machine_arch + '.bin:' + fitimage_name + ' '
     if kernel_images:
         d.setVarFlag('PACKAGES_LIST', 'linux-xlnx', kernel_images )
-
-    qemuhw_dir = "qemu-hw-devicetrees/"
-    multi_qemuhw_dir = qemuhw_dir + "multiarch/"
-    qemu_hwdtbs = (d.getVar('QEMU_HWDTBS') or "").split()
-    qemu_multi_hwdtbs = (d.getVar('QEMU_MULTI_HWDTBS') or "").split()
-    dtbs_list = (' '.join(qemu_hwdtbs) + ' ' + ' '.join(qemu_multi_hwdtbs))
-    d.setVarFlag('PACKAGES_LIST', 'qemu-devicetrees-native', dtbs_list)
 
 def copy_files(inputfile,outputfile):
    import shutil
@@ -332,7 +328,8 @@ python plnx_deploy_rootfs() {
                 copy_files(deploy_dir + '/' + source_name,output_path + '/' + dest_name)
 
     extra_files = d.getVar('EXTRA_FILESLIST') or ""
-    for file in extra_files.split():
+    dtb_files = d.getVar('QEMU_DTB_FILESLIST') or ""
+    for file in extra_files.split() + dtb_files.split():
         input, output = file.split(':')
         copy_files(input,output_path + '/' + output)
 }
