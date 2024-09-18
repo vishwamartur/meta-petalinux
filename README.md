@@ -60,57 +60,57 @@ This layer depends on:
 
 	URI: https://git.yoctoproject.org/poky
 	layers: meta, meta-poky
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://git.openembedded.org/meta-openembedded
 	layers: meta-oe, meta-perl, meta-python, meta-filesystems, meta-gnome,
             meta-multimedia, meta-networking, meta-webserver, meta-xfce,
             meta-initramfs.
-	branch: langdale
+	branch: scarthgap
 
 	URI:
         https://git.yoctoproject.org/meta-xilinx (official version)
         https://github.com/Xilinx/meta-xilinx (development and amd xilinx release)
 	layers: meta-xilinx-core, meta-xilinx-microblaze, meta-xilinx-bsp,
             meta-xilinx-standalone, meta-xilinx-vendor, meta-xilinx-virtualization.
-	branch: langdale or amd xilinx release version (e.g. rel-v2024.1)
+	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
 
 	URI:
         https://git.yoctoproject.org/meta-xilinx-tools (official version)
         https://github.com/Xilinx/meta-xilinx-tools (development and amd xilinx release)
-	branch: langdale or amd xilinx release version (e.g. rel-v2024.1)
+	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://github.com/Xilinx/meta-jupyter
-	branch: langdale or amd xilinx release version (e.g. rel-v2024.1)
+	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-mingw
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://github.com/OpenAMP/meta-openamp
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://github.com/meta-qt5/meta-qt5
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://github.com/Xilinx/meta-ros
 	layers: meta-ros-common, meta-ros2, meta-ros2-humble
-	branch: amd xilinx release version (e.g. rel-v2024.1)
+	branch: amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-security
 	layers: meta-tpm
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://github.com/Xilinx/meta-kria
-	branch: amd xilinx release version (e.g. rel-v2024.1)
+	branch: amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-virtualization
-	branch: langdale
+	branch: scarthgap
 
 	URI: https://github.com/Xilinx/meta-vitis
-	branch: amd xilinx release version (e.g. rel-v2024.1)
+	branch: amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://github.com/Xilinx/meta-xilinx-tsn
-	branch: amd xilinx release version (e.g. rel-v2024.1)
+	branch: amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-aws
-	branch: langdale
+	branch: scarthgap
