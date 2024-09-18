@@ -93,7 +93,7 @@ This layer depends on:
 	branch: scarthgap
 
 	URI: https://github.com/Xilinx/meta-ros
-	layers: meta-ros-common, meta-ros2, meta-ros2-humble
+	layers: meta-ros-common, meta-ros2, meta-ros2-jazzy
 	branch: amd xilinx release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-security
