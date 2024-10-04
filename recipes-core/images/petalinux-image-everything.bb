@@ -37,7 +37,7 @@ VITISAI_DEPENDENCIES = "opencv googletest protobuf-c boost json-c libunwind"
 IMAGE_INSTALL:append:zynqmp = " ${VITISAI_DEPENDENCIES} xrt cppzmq-dev jansson kernel-devsrc mosquitto kernel-module-dp kernel-module-hdmi"
 IMAGE_INSTALL:append:zynqmp = "${@bb.utils.contains('DISTRO_FEATURES', 'openamp', ' openamp-demo-notebooks', '', d)}"
 IMAGE_INSTALL:append:zynqmp = "${@bb.utils.contains('MACHINE_FEATURES', 'vcu', ' gstreamer-vcu-examples gstreamer-vcu-notebooks', '', d)}"
-IMAGE_INSTALL:append:zynqmp = "${@bb.utils.contains('MACHINE_FEATURES', 'rfsoc', ' sdfec rfdc rfdc-intr rfdc-read-write rfdc-selftest rfclk', '', d)}"
+IMAGE_INSTALL:append:zynqmp = "${@bb.utils.contains('MACHINE_FEATURES', 'rfsoc', ' sdfec librfdc librfclk rfdc-intr rfdc-read-write rfdc-selftest', '', d)}"
 
 IMAGE_INSTALL:append:versal = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-notebooks kernel-module-hdmi"
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' gstreamer-vdu-examples gstreamer-vdu-notebooks', '', d)}"
