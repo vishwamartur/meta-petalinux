@@ -140,6 +140,8 @@ QEMU_HWDTB_NAME:vek280-versal ?= "board-versal-ps-vek280.dtb"
 QEMU_HWDTB_NAME:vek280-es1-versal ?= "board-versal-ps-vek280-es1.dtb"
 QEMU_HWDTB_NAME:zcu104-zynqmp ?= "board-zynqmp-zcu104.dtb"
 QEMU_HWDTB_NAME:k26-smk-kv ?= "board-zynqmp-kv260.dtb"
+QEMU_HWDTB_NAME:zc1751-zynqmp ?= "board-zynqmp-zc1751-dc1.dtb"
+QEMU_HWDTB_NAME:zc1751-dc2-zynqmp ?= "board-zynqmp-zc1751-dc2.dtb"
 
 QEMU_HWDTBS:zynqmp ?= "qemu-hw-devicetrees/${QEMU_HWDTB_NAME}:zynqmp-qemu-arm.dtb"
 
