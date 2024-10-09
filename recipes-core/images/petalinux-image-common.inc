@@ -2,9 +2,8 @@ inherit core-image
 inherit plnx-image
 inherit image_types_plnx
 
-# Skip /boot when generating a cpio, jffs2
+# Skip /boot when generating a cpio, ubi
 PLNX_IMAGE_CPIO_SKIP += "! -path './boot/*'"
-PLNX_IMAGE_JFFS2_SKIP += "! -path './boot/*'"
 PLNX_IMAGE_UBI_SKIP += "! -path './boot/*'"
 
 SSH_SERVER_DEFAULT ?= " ssh-server-openssh"
