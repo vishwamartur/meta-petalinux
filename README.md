@@ -3,8 +3,8 @@
 This layer is a distro layer on supported architectures MicroBlaze, Zynq, ZynqMP
 and Versal.
 
-> **Note:** Additional information on Xilinx architectures can be found at:
-	https://www.xilinx.com/products/silicon-devices.html
+> **Note:** Additional information on AMD Adaptive SoC's and FPGA's can be found at:
+	https://www.amd.com/en/products/adaptive-socs-and-fpgas.html
 
 ## Toolchains
 
@@ -30,10 +30,10 @@ the [meta-xilinx mailing list](https://lists.yoctoproject.org/g/meta-xilinx):
 When sending patches, please make sure the email subject line includes
 `[meta-petalinux][<BRANCH_NAME>][PATCH]` and cc'ing the maintainers.
 
-For more details follow the OE community patch submission guidelines, as described in:
+For more details follow the Yocto Project community patch submission guidelines,
+as described in:
 
-https://www.openembedded.org/wiki/Commit_Patch_Message_Guidelines
-https://www.openembedded.org/wiki/How_to_submit_a_patch_to_OpenEmbedded
+https://docs.yoctoproject.org/dev/contributor-guide/submit-changes.html#
 
 `git send-email --to meta-xilinx@lists.yoctoproject.org *.patch`
 
@@ -46,13 +46,14 @@ https://www.openembedded.org/wiki/How_to_submit_a_patch_to_OpenEmbedded
 `git format-patch -s --subject "meta-petalinux][<BRANCH_NAME>][PATCH" -1`
 
 **Example:**
-`git format-patch -s --subject "meta-petalinux][rel-v2023.1][PATCH" -1`
+`git format-patch -s --subject "meta-petalinux][rel-v2024.2][PATCH" -1`
 
 **Maintainers:**
 
 	Mark Hatle <mark.hatle@amd.com>
 	Sandeep Gundlupet Raju <sandeep.gundlupet-raju@amd.com>
 	John Toomey <john.toomey@amd.com>
+	Trevor Woerner <trevor.woerner@amd.com>
 
 ## Dependencies
 
@@ -70,18 +71,18 @@ This layer depends on:
 
 	URI:
         https://git.yoctoproject.org/meta-xilinx (official version)
-        https://github.com/Xilinx/meta-xilinx (development and amd xilinx release)
+        https://github.com/Xilinx/meta-xilinx (development and AMD release)
 	layers: meta-xilinx-core, meta-xilinx-microblaze, meta-xilinx-bsp,
             meta-xilinx-standalone, meta-xilinx-vendor, meta-xilinx-virtualization.
-	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
+	branch: scarthgap or AMD release version (e.g. rel-v2024.2)
 
 	URI:
         https://git.yoctoproject.org/meta-xilinx-tools (official version)
-        https://github.com/Xilinx/meta-xilinx-tools (development and amd xilinx release)
-	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
+        https://github.com/Xilinx/meta-xilinx-tools (development and AMD release)
+	branch: scarthgap or AMD release version (e.g. rel-v2024.2)
 
 	URI: https://github.com/Xilinx/meta-jupyter
-	branch: scarthgap or amd xilinx release version (e.g. rel-v2024.2)
+	branch: scarthgap or AMD release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-mingw
 	branch: scarthgap
@@ -94,23 +95,27 @@ This layer depends on:
 
 	URI: https://github.com/Xilinx/meta-ros
 	layers: meta-ros-common, meta-ros2, meta-ros2-jazzy
-	branch: amd xilinx release version (e.g. rel-v2024.2)
+	branch: AMD release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-security
 	layers: meta-tpm
 	branch: scarthgap
 
 	URI: https://github.com/Xilinx/meta-kria
-	branch: amd xilinx release version (e.g. rel-v2024.2)
+	branch: AMD release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-virtualization
 	branch: scarthgap
 
 	URI: https://github.com/Xilinx/meta-vitis
-	branch: amd xilinx release version (e.g. rel-v2024.2)
+	branch: AMD release version (e.g. rel-v2024.2)
 
 	URI: https://github.com/Xilinx/meta-xilinx-tsn
-	branch: amd xilinx release version (e.g. rel-v2024.2)
+	branch: AMD release version (e.g. rel-v2024.2)
 
 	URI: https://git.yoctoproject.org/meta-aws
+	branch: scarthgap
+
+	URI: https://git.yoctoproject.org/meta-arm
+	layers: meta-arm, meta-arm-toolchain
 	branch: scarthgap
