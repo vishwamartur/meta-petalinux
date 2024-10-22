@@ -43,7 +43,7 @@ IMAGE_INSTALL:append:versal = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-not
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' gstreamer-vdu-examples gstreamer-vdu-notebooks', '', d)}"
 IMAGE_INSTALL:append:versal = "${@bb.utils.contains('DISTRO_FEATURES', 'openamp', ' openamp-demo-notebooks', '', d)}"
 
-IMAGE_INSTALL:append:versal-net = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-notebooks kernel-module-hdmi"
+IMAGE_INSTALL:append:versal-net = " ${VITISAI_DEPENDENCIES} xrt kernel-devsrc pm-notebooks"
 IMAGE_INSTALL:append:versal-net = "${@bb.utils.contains('MACHINE_FEATURES', 'vdu', ' gstreamer-vdu-examples gstreamer-vdu-notebooks', '', d)}"
 IMAGE_INSTALL:append:versal-net = "${@bb.utils.contains('DISTRO_FEATURES', 'openamp', ' openamp-demo-notebooks', '', d)}"
 
