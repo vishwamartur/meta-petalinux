@@ -1,3 +1,8 @@
+# In order to support the system controller, we want to always enable
+# repart and openssl these items are not used by default, and will not
+# cause any issues on other systems.
+PACKAGECONFIG:append = " repart openssl"
+
 # Prevent boot delay on devices with multiple network interfaces
 
 # From the systemd-networkd-wait-online.service man page:
